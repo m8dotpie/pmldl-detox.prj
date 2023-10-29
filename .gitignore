@@ -8,3 +8,5 @@
 *.synctex.gz
 *.toc
 *.fdb_latexmk
+data/external/*
+data/raw/*
