@@ -10,3 +10,7 @@
 *.fdb_latexmk
 data/external/*
 data/raw/*
+data/interim/*_bleu_rating.csv
+data/interim/*_meteor_rating.csv
+data/interim/*_semantic_rating.csv
+data/interim/*_toxicity_rating.csv
