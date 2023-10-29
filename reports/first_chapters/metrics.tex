@@ -1,0 +1,49 @@
+\section{Metrics}
+
+The choice of metrics can greatly affect the outcomes of the research. Here we
+try to introduce the list with some of the metrics we might consider to use in
+this research.
+
+\subsection{Semantic Similarity}
+
+We can use word embeddings to measure the semantic similarity of the result
+with the original text. Embeddings can be either trained by ourselves, or be
+pre-trained (e.g. GloVe, etc). Vectorizing the results and taking the cosine
+similarity can give a significant insight into the similarity of the given
+sentences.
+
+This metric might produce poor results if the quality of embeddings is not
+satisfactory. This can be especially an issue in case of baseline model. Simple
+replacement of words can break the original sense of the sentence with
+unsuitable synonym. This in turn will lead to incorrect feature capture.
+
+\subsection{BLEU}
+
+\textbf{BLEU} --- Bilingual Evaluation Understudy.
+
+The idea of the metric is to capture matching n-grams in the predicted
+sequences. It is very widespread metric for natural language processing.
+Especially in translation tasks. We can and probably should consider the task
+of detoxification as translation from non-toxic language to a toxic one.
+
+\subsection{METEOR}
+
+\textbf{METEOR} --- Metric for Evaluation of Translation with Explicit Ordering.
+
+This metric is less widespread. However, it addresses many issues of BLEU,
+resulting in much more balanced view of translation quality. The metric
+captures semantic equivalence better, then BLEU, by considering synonyms,
+stemming, being more flexible.
+
+However, advantages come at cost of more computationally intensive algorithm,
+which might become an issue on large chunks of data.
+
+\subsection{Discriminator Network}
+
+Given the large enough dataset of reference sentences and ideal paraphrasings,
+we can train dicriminator. The main purpose of discriminator is to detect
+whether the text was written by human or machine. But with enough finetuning on
+dataset references, we can theoretically bias it towards non-toxic sentences.
+
+Chances are, if the discriminator struggles to claim that the text is machine
+generated, then the paraphrasing quality is relatively good.
