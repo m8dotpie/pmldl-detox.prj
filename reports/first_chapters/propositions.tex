@@ -1,0 +1,63 @@
+\section{Propositions}
+
+Before proposing the models we can use for the task, we need to define the task
+itself. While text detoxification is a general goal, we can approach it with
+different ways.
+
+\subsection{Possible approaches}
+
+\begin{enumerate}
+    \item \textbf{Inplace replacements:} just find a bad word and replace with predefined synonym.
+
+          Not a ML algorithm at all, just a simple inplace algorithm used in our baseline
+          model.
+    \item \textbf{Masking:} we can use encoder, trained to predict masked tokens. Masks can be placed instead of synonyms in previous approach.
+
+          For example, we can use BERT for predicting several replacements for masked
+          token and select the most appropriate one, based on predefined metrics. For
+          instance, this approach was called CondBERT~\cite{}. This approach is better in
+          a sense, that it can preseve the meaning by reading the whole context, not only
+          the toxic part.
+
+    \item \textbf{Paraphrasing:} seq2seq transformation of the given text.
+
+          While most probably the model of choice will need fine-tuning, which quite
+          heavy operation on well performant models, it is still possible. Variety of
+          models is incredible: LLaMA~\cite{}, GPT2~\cite{}, GPT3~\cite{}, T5~\cite{} and
+          others.
+
+    \item \textbf{Others:} multiple other approaches.
+
+          There are approaches combining discriminator with generator, to teach the model
+          preserve the style (e.g. non-toxic), combining discriminator with paraphraser
+          (to ensure preservation of the meaning), using seq2seq supervised transformer
+          as translator, since they are limited in offensive instruments and many other.
+
+\end{enumerate}
+
+\subsection{Model Criteria}
+
+With such wide variety of instruments it becomes increasingly difficult to
+select the proper tooling. We need more constraints on our solution, to
+optimize it, since simply trying to reach the best performant models will lead
+to infinite tuning of SOTA techniques. Moreover, it will require enourmous
+hardware (of financial for cloud-based solutions) investments. Therefore, we
+need to define several criteria for the selection of approach.
+
+\begin{enumerate}
+    \item Solution from scratch will require a lot of computational power for training,
+          while lacking even a fraction of power of existing transformers. Consequently,
+          we shall use pre-trained models.
+
+    \item The approach of choice should either be incredibly pretrained, requiring little
+          to none fine-tuning, or good enough to capture specifics of the task from a
+          small fraction of the dataset. This balance of pretrained perfomance and
+          fine-tuning amount should be as optimized, as possible.
+
+    \item While the solutions computational demands are very important, we should not
+          forget about the performance of the final model. It should produce robust
+          predictions in short time.
+\end{enumerate}
+
+Each approach has own pros and cons in terms of derived criteria, so a proper
+research of tooling is required.
