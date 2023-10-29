@@ -1,0 +1,10 @@
+.DS_Store
+.devcontainer/*
+*.pyc
+*.aux
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.fdb_latexmk
