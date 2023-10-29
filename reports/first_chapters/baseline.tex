@@ -1,0 +1,58 @@
+\section{Baseline}
+
+There are several approaches how we can introduce the baseline model. However,
+I have decided to stick with simpler solution. Idea is to build dictionary
+based solution which will replace a swear word (or multiple related, forming
+swear formulation) with safer non-toxic synonym.
+
+\subsection{Building Dataset}
+
+While there are a lot of ``bad words'' datasets available online, it is not so
+trivial to find their safe synonyms. Multiple approaches can be used to find
+alternatives:
+
+\begin{enumerate}
+    \item \textbf{Machine Learning:} use pretrained model to find safe synonym for each word of the dataset
+    \item \textbf{Word Corpus:} use corpus of english words to find synonyms. For instance, WordNet has this
+          feature. However, we have to consider the problem, that WordNet does not itself
+          classify the toxicity of the word, so we have to somehow deal with toxic
+          synonyms.
+    \item \textbf{Manual:} manually derive synonyms. This can work for smaller versions of the datasets.
+\end{enumerate}
+
+To address the issues with synonyms we can consider generating several
+(preferably long enough list) of synonyms, regardless the method we chose.
+Then, we need an assumption, that there is little to none swear words which are
+not included in our dataset. Evidently, this assumption is wrong, but
+approximation is good enough for building reliable dataset. Finally, we can
+filter the synonyms, omitting the ones which belong to our dataset of unwanted
+(i.e.~swear) words.
+
+This way datamining becomes very easy to follow pipeline:
+\begin{enumerate}
+    \item Choose swear words dataset
+    \item Generate a list of synonyms for each of them, using algorithm of choice
+    \item Select an appropriate synonym, which is not in swear dataset itself
+    \item Convert the dataset into the replacement dictionary for the ease of use
+\end{enumerate}
+
+\subsection{Algorithm}
+
+Given the replacement dictionary, we can effectively detect forbidden words in
+the text and replace them with safer alternatives.
+
+However, we still need to consider several issues.
+
+\begin{enumerate}
+    \item Some sentences may stay unchanged. E.g.~swear word is not in our list or highly
+          obfuscated. We \textbf{should not} consider these sentences in evaluation. The
+          reason for this, unchanged sentences most probably will have ideal scores on
+          most of the metrics of semantic and norm similarity. This will lead to overalll
+          result better, than it really is, if considered separately from toxicity.
+    \item Carefully preprocess the sentence. Ideally we want the model to effectively
+          work on raw data (or with some internal preprocessing). This is an issue if we
+          consider the obfuscated words and words with different capitalization.
+    \item The performance of this algorithm is highly dependent on the dataset generated,
+          as a result, toxic words list as well as synonyms should be extensive enough to
+          cover most of the dataset.
+\end{enumerate}
