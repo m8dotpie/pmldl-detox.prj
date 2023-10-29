@@ -2,7 +2,8 @@
 
 - Write docstrings
 - Discriminator dataset
-- script for downloading glove and bad-words
+- ~~script for downloading glove and bad-words~~
+- inference and learning time graphs
 
 # Info
 
@@ -22,3 +23,5 @@
 - Detoxify: <https://github.com/unitaryai/detoxify>
 - wordcloud: <https://amueller.github.io/word_cloud/>
 - docstring: <https://peps.python.org/pep-0257/>
+- translate: <https://huggingface.co/docs/transformers/tasks/translation>
+- bart-base-detox: <https://huggingface.co/s-nlp/bart-base-detox?text=fuck+you>
