@@ -1,19 +1,18 @@
 """Baseline prediction model"""
 
-from dotenv import find_dotenv, load_dotenv
 import os
+import re
 import sys
+import pandas as pd
+from tqdm import tqdm
+from nltk.corpus import wordnet
+from dotenv import find_dotenv, load_dotenv
+
 
 load_dotenv()
 sys.path.append(os.path.dirname(find_dotenv()))
 root = os.path.dirname(find_dotenv())
 
-
-import pandas as pd
-from tqdm import tqdm
-from nltk.corpus import wordnet
-import nltk
-import re
 
 from src.data.preprocess_dataset import text_symbolic_preprocess
 
