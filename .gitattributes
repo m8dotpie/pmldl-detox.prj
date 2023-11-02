@@ -1,0 +1,2 @@
+models/t5-small-ft/pytorch_model.bin filter=lfs diff=lfs merge=lfs -text
+models/t5-small-ft2/pytorch_model.bin filter=lfs diff=lfs merge=lfs -text
