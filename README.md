@@ -4,8 +4,11 @@
 
 I am ~~proud~~ owner of the AMD Graphics powered laptop ~~(god bless apple)~~, as a result it is nearly impossible for me to run or test anything locally. In general everything should be fine, but I was unable to test if everything runs as expected. So several issues might be possible. But I did my best to avoid any inconsistencies across the code.
 
+- [x] All predictions preprocessed and saved [locally](data/interim/predictions/)
+- [x] All metrics precalculated and saved [locally](data/interim/metrics/)
+- [x] All datasets precomputed and saved [here](data/interim/dataset/) and for toxic words [here](data/interim/synonyms_dataset/)
 - [x] Colab notebooks rewritten locally
-- [x] Dotenv tuned properly
+- [x] [Dotenv](./.env) tuned properly
 - [x] Dependencies across the `src` files as well as notebooks work
 - [x] Checkpoints provided
 
@@ -38,18 +41,23 @@ It was a hard decision, but I have decided to store model checkpoints along the 
   - [t5-small-ft](notebooks/4.0-t5-small-ft.ipynb)
   - [t5-small-ft2](notebooks/4.1-t5-small-ft2.ipynb)
 
-- Evaluation
+- Models Evaluation
 
   - [Evaluation](notebooks/5.0-evaluation.ipynb)
 
-- Results exploration
+- Results Exploration
 
   - [Exploration](notebooks/6.0-results-exploration.ipynb)
 
 ## Reports
 
-- [Proposal report]() - report, containing main hypothesis, ideas and related information. The draft of the project
-- [Final report]() - final report, containing all the necessary information about the models, data retrieval and preprocessing, fine-tuning and evaluation
+- [Proposal report]()
+
+Main hypothesis, ideas and related information. The draft of the project
+
+- [Final report]()
+
+Final report, containing all the necessary information about the models, data retrieval and preprocessing, fine-tuning and evaluation
 
 ## Acknowledgements
 
