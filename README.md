@@ -1,6 +1,12 @@
 # [PMLDL] Detoxify
 
+## Problem Definition
+
+Can be found [here](PROBLEM.md)
+
 ## Installation and Running
+
+**Instead of `requirenments.txt` this repository uses `conda` environment. Read further.**
 
 I am ~~proud~~ owner of the AMD Graphics powered laptop ~~(god bless apple)~~, as a result it is nearly impossible for me to run or test anything locally. In general everything should be fine, but I was unable to test if everything runs as expected. So several issues might be possible. But I did my best to avoid any inconsistencies across the code.
 
@@ -9,8 +15,9 @@ I am ~~proud~~ owner of the AMD Graphics powered laptop ~~(god bless apple)~~, a
 - [x] All datasets precomputed and saved [here](data/interim/dataset/) and for toxic words [here](data/interim/synonyms_dataset/)
 - [x] Colab notebooks rewritten locally
 - [x] [Dotenv](./.env) tuned properly
-- [x] Dependencies across the `src` files as well as notebooks work
+- [x] Dependencies across the `src` files as well as notebooks should work
 - [x] Checkpoints provided
+- [x] `conda` environment exported to environment.yml
 
 For instance, I would recommend not running tuning and learning, rather than loading the checkpoints, which is indeed works (afaik).
 
