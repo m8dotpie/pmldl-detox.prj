@@ -22,6 +22,7 @@ def get_wordcloud(text):
 
 
 def plot_wordcloud(cloud, ax=None):
+    """Plot the given wordcloud"""
     if ax is None:
         fig, ax = plt.subplots(figsize=(8, 8), dpi=100)
     ax.imshow(cloud, interpolation="bilinear")
