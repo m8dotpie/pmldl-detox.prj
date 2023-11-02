@@ -17,12 +17,34 @@ It was a hard decision, but I have decided to store model checkpoints along the 
 
 ## Notebooks
 
-- 1
-- 2
-- 3
-- 4
-- 5
-- 6
+- Data
+
+  - [Initial exploration](notebooks/1.0-data-exploration.ipynb)
+  - [Initial preprocession](notebooks/1.1-data-preprocess.ipynb)
+  - [Bad words dataset](notebooks/1.2-bad-words-dataset.ipynb)
+
+- Metrics
+
+  - [Introduction and draft](notebooks/2.0-metrics.ipynb)
+
+- Baseline model
+
+  - [Draft](notebooks/3.0-baseline-draft.ipynb)
+  - [Testing](notebooks/3.1-baseline-test.ipynb)
+  - [Evaluation](notebooks/3.2-baseline-evaluation.ipynb)
+
+- Models
+
+  - [t5-small-ft](notebooks/4.0-t5-small-ft.ipynb)
+  - [t5-small-ft2](notebooks/4.1-t5-small-ft2.ipynb)
+
+- Evaluation
+
+  - [Evaluation](notebooks/5.0-evaluation.ipynb)
+
+- Results exploration
+
+  - [Exploration](notebooks/6.0-results-exploration.ipynb)
 
 ## Reports
 
