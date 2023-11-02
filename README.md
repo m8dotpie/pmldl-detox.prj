@@ -51,31 +51,24 @@ It was a hard decision, but I have decided to store model checkpoints along the 
 
 ## Reports
 
-- [Proposal report]()
+- [Proposal report](reports/first_report.pdf)
 
 Main hypothesis, ideas and related information. The draft of the project
 
-- [Final report]()
+- [Final report](reports/final_report.pdf)
 
 Final report, containing all the necessary information about the models, data retrieval and preprocessing, fine-tuning and evaluation
 
 ## Acknowledgements
 
-Please do not blame me if anything does not work. I did my best to seemlessly integrate everything with each other and spent many hours on this. I am aiming at **flipped class**, so bad assignment mark will ruin all my hard work.
+Please do not blame me if anything does not work. I did my best to seemlessly integrate everything with each other and spent many hours on this. I am aiming at **flipped class**, so I will be very sad if I will get bad mark because of some minor issue. Even though I am all in for fair assessment and open for discussion of real issues with the work.
 
-# Future references:
-
-- [Original work](https://arxiv.org/pdf/2109.08914.pdf) about detoxification
-- [Prompt tuning for detoxification](https://www.dialog-21.ru/media/5735/konodyukn120.pdf)
-
-  - Suggests eval
-
-- [CAE-T5 for detoxification](https://arxiv.org/pdf/2102.05456.pdf)
-
-  - Good approach in general
-  - Explains loss
-  - Explains eval + uses other models
-
-- [PARANMT-50M](https://aclanthology.org/P18-1042.pdf)
-
-  - useful corpus, original work extracted toxic pairs somehow
+- Vladimir Ivanov for informative lectures
+- Maxim Evgrafov and Lada Morozova for incredibly useful labs
+- Skolkovo for [work](https://arxiv.org/abs/2109.08914) on detoxification
+- Skolkovo for [another work](https://aclanthology.org/2022.acl-long.469/) on detoxification
+- [This](https://aclanthology.org/2022.acl-long.469/) work for great showcase of metrics and transformers
+- [ParaNMT-50M](https://aclanthology.org/P18-1042.pdf) dataset creators
+- [Detoxify](https://github.com/unitaryai/detoxify) creators
+- [WordNet](https://wordnet.princeton.edu) creators
+- [Yeah Yeah Yeahs](https://music.apple.com/ru/artist/yeah-yeah-yeahs/1265171?l=en-GB) for a great music
