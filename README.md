@@ -2,14 +2,18 @@
 
 ## Installation and Running
 
-I am ~~proud~~ owner of the AMD Graphics powered laptop, as a result it is nearly impossible for me to run or test anything locally. In general everything should be fine, but I was unable to test if everything runs as expected. So several issues might be possible.
+I am ~~proud~~ owner of the AMD Graphics powered laptop ~~(god bless apple)~~, as a result it is nearly impossible for me to run or test anything locally. In general everything should be fine, but I was unable to test if everything runs as expected. So several issues might be possible. But I did my best to avoid any inconsistencies across the code.
 
 - [x] Colab notebooks rewritten locally
 - [x] Dotenv tuned properly
 - [x] Dependencies across the `src` files as well as notebooks work
 - [x] Checkpoints provided
 
-For instance, I would recommend not running tuning and learning, rather than loading the checkpoints, which is indeed works.
+For instance, I would recommend not running tuning and learning, rather than loading the checkpoints, which is indeed works (afaik).
+
+## Checkpoints
+
+It was a hard decision, but I have decided to store model checkpoints along the project itself. So if you will clone the repo, you will have to clone 0.5GB of checkpoints as well. However, it is very handy, since they are not so heavy, but useful all over the work.
 
 ## Notebooks
 
@@ -27,7 +31,7 @@ For instance, I would recommend not running tuning and learning, rather than loa
 
 ## Acknowledgements
 
-Please do not blame me if anything does not work. I did my best to seemlessly integrate everything with each other and spent many hours on this. I am aiming at **flipped class**, so bad assignment mark will ruin me everything.
+Please do not blame me if anything does not work. I did my best to seemlessly integrate everything with each other and spent many hours on this. I am aiming at **flipped class**, so bad assignment mark will ruin all my hard work.
 
 # Future references:
 
