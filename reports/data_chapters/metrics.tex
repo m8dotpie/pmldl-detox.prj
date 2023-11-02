@@ -1,0 +1,24 @@
+\section{Metrics}
+
+\subsection{Toxicity}
+
+To objectively compare the performance of the models in text detoxification we
+need some toxicity metric. As such, we are going to use
+\textbf{\textit{Detoxify}} package~\cite{}.
+
+Each model predictions will be ranked in the interval \([0, 1]\) for further
+comparison.
+
+\subsubsection{Semantic similarity}
+
+Since we have a task of translation (style change) with preservation of the
+meaning, we might want to use some related metrics. Generally, we have decided
+to stick with metrics introduced in initial draft.
+
+Final results will be compared using the following metrics:
+
+\begin{itemize}
+    \item BLEU
+    \item METEOR
+    \item Cosine Similarity (GLoVe embedded)
+\end{itemize}

@@ -1,0 +1,48 @@
+\section{Datamining}
+
+Primary sources of the information were:
+
+\begin{enumerate}
+    \item ParaNMT filtered corpus~\cite{}
+    \item Glove embeddings~\cite{}
+    \item WordNet~\cite{}
+    \item Jigsaw bad words dataset~\cite{}
+\end{enumerate}
+
+\subsection{ParaNMT}
+
+While the dataset was considered as a dataset of the toxic sentences and their
+non-toxic paraphrases with toxicity ranking from people, it seems to be
+slightly wrong.
+
+It seems that paraphasing is the reverse-translation of the sentence, which was
+done artificially as well.
+
+Moreover, original work~\cite{} for toxicity ranking proposed one more model.
+
+As a result, the main dataset was artificially generated, artificially ranked
+and in general is not a very good source of data.
+
+\subsubsection{Filtering the filtered}
+
+To achieve decent results we can carefully pick the samples from the provided
+dataset. For instance, experimentally we deduced that filtering the samples
+which lead from high level of toxicity to the very low in result, filters many
+insane examples.
+
+Moreover, such filter is beneficial in terms of actually successfully
+detoxifying the text, while preserving the high similarity of the reference and
+translation.
+
+Final parameters for filtering:
+\begin{equation}\text{tox}_\text{ref} > 0.99 \wedge \text{tox}_\text{trn} < 0.01\end{equation}
+
+\subsubsection{Splitting}
+
+After filtering the data, we can deterministically sample the data with
+specified random seed, to achieve reproducible results. For instance, we want
+\(3000\) samples for test data. \(10000\) of samples will be split in \(9:1\)
+correspondence for train/validation datasets. While larger samples are
+computationally feasible, they tend not to improve final results greatly, as a
+result, we will stick with these values.
+
