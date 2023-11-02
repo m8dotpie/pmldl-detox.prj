@@ -13,6 +13,7 @@ from dotenv import load_dotenv, find_dotenv
 load_dotenv()
 root = os.path.dirname(find_dotenv())
 
+from tqdm import tqdm
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from gensim.models import KeyedVectors
@@ -52,7 +53,7 @@ def cosine_similarity_score(reference: list, hypothesis: list) -> float:
     )
 
     scores = []
-    for ref, hyp in zip(reference, hypothesis):
+    for ref, hyp in tqdm(zip(reference, hypothesis), total=len(reference)):
         scores.append(compute_semantic_similarity(ref, hyp, glove_model))
 
     return scores, sum(scores) / len(scores)
@@ -80,7 +81,7 @@ def blue_score(reference: list, hypothesis: list) -> float:
     """Computes BLEU score"""
 
     scores = []
-    for ref, hyp in zip(reference, hypothesis):
+    for ref, hyp in tqdm(zip(reference, hypothesis), total=len(reference)):
         scores.append(_compute_bleu_score(ref, hyp))
 
     return scores, sum(scores) / len(scores)
@@ -99,7 +100,7 @@ def meteor_score(reference: list, hypothesis: list) -> float:
     """Computes METEOR score"""
 
     scores = []
-    for ref, hyp in zip(reference, hypothesis):
+    for ref, hyp in tqdm(zip(reference, hypothesis), total=len(reference)):
         scores.append(_compute_meteor_score(ref, hyp))
 
     return scores, sum(scores) / len(scores)
@@ -109,7 +110,7 @@ def toxicity_score(samples: list, batch_size=25) -> float:
     """Computes toxicity score"""
 
     scores = []
-    for i in range(0, len(samples), batch_size):
+    for i in tqdm(range(0, len(samples), batch_size)):
         batch = samples[i : i + batch_size]
         scores += Detoxify("original").predict(batch)["toxicity"]
     score = sum(scores) / len(scores)

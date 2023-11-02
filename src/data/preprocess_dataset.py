@@ -32,8 +32,23 @@ def text_semantic_preprocess(text: str) -> str:
     return fix
 
 
+def text_difference_preprocess(row) -> str:
+    text1, text2 = row["t1"], row["t2"]
+    new_text1 = [word for word in text1 if word not in text2]
+    new_text2 = [word for word in text2 if word not in text1]
+
+    return new_text1, new_text2
+
+
 def dataframe_preprocess(
-    df: pd.DataFrame, symbolic=True, semantic=True, mask=None, df_max_len=100
+    df: pd.DataFrame,
+    symbolic=True,
+    semantic=False,
+    difference=False,
+    merge_after=False,
+    mask=None,
+    df_max_len=100,
+    random_state=42,
 ) -> pd.DataFrame:
     """Preprocess dataframe with 2 optional stages
 
@@ -64,7 +79,7 @@ def dataframe_preprocess(
     df = df[mask]
 
     if (df_max_len is not None) and (len(df) > df_max_len):
-        df = df.sample(df_max_len)
+        df = df.sample(df_max_len, random_state=random_state)
 
     if symbolic:
         df["t1"] = df["t1"].apply(text_symbolic_preprocess)
@@ -73,5 +88,14 @@ def dataframe_preprocess(
     if semantic:
         df["t1"] = df["t1"].apply(text_semantic_preprocess)
         df["t2"] = df["t2"].apply(text_semantic_preprocess)
+
+    if difference:
+        df[["t1", "t2"]] = df[["t1", "t2"]].apply(
+            text_difference_preprocess, axis=1, result_type="expand"
+        )
+
+    if merge_after:
+        df["t1"] = df["t1"].str.join(" ")
+        df["t2"] = df["t2"].str.join(" ")
 
     return df
