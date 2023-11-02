@@ -1,22 +1,19 @@
 """Evaluation metrics methods"""
 
+import os
+from tqdm import tqdm
+import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
+from gensim.models import KeyedVectors
 from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
 from nltk.translate.meteor_score import single_meteor_score
 from nltk.tokenize import word_tokenize
 
 from detoxify import Detoxify
-
-import os
-import sys
 from dotenv import load_dotenv, find_dotenv
 
 load_dotenv()
 root = os.path.dirname(find_dotenv())
-
-from tqdm import tqdm
-import numpy as np
-from sklearn.metrics.pairwise import cosine_similarity
-from gensim.models import KeyedVectors
 
 
 def get_sentence_vector(sentence, model):
