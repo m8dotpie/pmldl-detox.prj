@@ -1,5 +1,11 @@
 # [PMLDL] Detoxify
 
+**Author:** `Igor Alentev`
+
+**Group:** `BS20-RO-01`
+
+**Email:** `i.alentev@innopolis.university`
+
 ## Problem Definition
 
 Can be found [here](PROBLEM.md)
